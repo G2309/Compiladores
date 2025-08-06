@@ -107,13 +107,13 @@ def enterAssign(self, ctx): pass
 def exitAssign(self, ctx): pass
 ```
 
-Puedes extender esta clase para:
+Se puede  extender esta clase para:
 
 - Evaluar expresiones
 - Asignar variables
 - Imprimir resultados
 
-Y luego usar un ParseTreeWalker para recorrer el árbol y ejecutar tu lógica:
+Y luego usar un ParseTreeWalker para recorrer el árbol y ejecutar lógica:
 
 ```python
 walker = ParseTreeWalker()
