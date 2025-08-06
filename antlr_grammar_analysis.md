@@ -10,6 +10,12 @@ ANTLR (Another Tool for Language Recognition) es una herramienta para construir 
 
 ---
 
+## Link al video
+
+(video)[https://youtu.be/3V1PrzTtGcA]
+
+---
+
 ## Estructura de una gramática .g4
 
 Un archivo .g4 define la sintaxis y los tokens del lenguaje. Sus principales secciones son:
