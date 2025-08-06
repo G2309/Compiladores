@@ -12,7 +12,7 @@ ANTLR (Another Tool for Language Recognition) es una herramienta para construir 
 
 ## Link al video
 
-(video)[https://youtu.be/3V1PrzTtGcA]
+[video](https://youtu.be/3V1PrzTtGcA)
 
 ---
 
