@@ -50,34 +50,26 @@ class TypeCheckListener(SimpleLangListener):
     if isinstance(left_type, (IntType, FloatType)) and isinstance(right_type, (IntType, FloatType)):
       return True
     return False
-
-# Funcion para analizar la operación módulo entre dos expresiones
-
-# Recibe un contexto del parser con la operacion modulo
-def exitMod(self, ctx: SimpleLangParser.ModContext):
-    left_type = self.types[ctx.expr(0)]
-    right_type = self.types[ctx.expr(1)]
-    if not (isinstance(left_type, IntType) and isinstance(right_type, IntType)):
-        self.errors.append(f"Unsupported operand types for %: {left_type} and {right_type}")
-    self.types[ctx] = IntType()
-
-
-# Funcion para analizar la potenciacion 
-
-# Recibe un contexto del parser con la operacion potencia
-def exitPow(self, ctx: SimpleLangParser.PowContext):
-    left_type = self.types[ctx.expr(0)]
-    right_type = self.types[ctx.expr(1)]
-    if not (isinstance(left_type, (IntType, FloatType)) and isinstance(right_type, (IntType, FloatType))):
-        self.errors.append(f"Unsupported operand types for ^: {left_type} and {right_type}")
-    self.types[ctx] = FloatType() if isinstance(left_type, FloatType) or isinstance(right_type, FloatType) else IntType()
-
-# funcion para analizar comparadores: <, >, >>, <<
-def exitCompare(self, ctx: SimpleLangParser.CompareContext):
-    # se reciben los operandos, base y exponente
-    left = self.visit(ctx.expr(0))
-    right = self.visit(ctx.expr(1))
-    # C: comparadores < > solo para numéricos
-    if not (isinstance(left, (IntType, FloatType)) and isinstance(right, (IntType, FloatType))):
-      self.errors.append(f"Unsupported operand types for {ctx.op.text}: {left} and {right}")
-    self.types[ctx] = BoolType()
+  # Operación módulo (%)
+  def exitMod(self, ctx: SimpleLangParser.ModContext):
+      left_type = self.types[ctx.expr(0)]
+      right_type = self.types[ctx.expr(1)]
+      if not (isinstance(left_type, IntType) and isinstance(right_type, IntType)):
+          self.errors.append(f"Unsupported operand types for %: {left_type} and {right_type}")
+      self.types[ctx] = IntType()
+  
+  # Operación potenciación (^)
+  def exitPow(self, ctx: SimpleLangParser.PowContext):
+      left_type = self.types[ctx.expr(0)]
+      right_type = self.types[ctx.expr(1)]
+      if not (isinstance(left_type, (IntType, FloatType)) and isinstance(right_type, (IntType, FloatType))):
+          self.errors.append(f"Unsupported operand types for ^: {left_type} and {right_type}")
+      self.types[ctx] = FloatType() if isinstance(left_type, FloatType) or isinstance(right_type, FloatType) else IntType()
+  
+  # Operaciones comparativas (<, >, <=, >=)
+  def exitCompare(self, ctx: SimpleLangParser.CompareContext):
+      left_type = self.types[ctx.expr(0)]
+      right_type = self.types[ctx.expr(1)]
+      if not (isinstance(left_type, (IntType, FloatType)) and isinstance(right_type, (IntType, FloatType))):
+          self.errors.append(f"Unsupported operand types for {ctx.op.text}: {left_type} and {right_type}")
+      self.types[ctx] = BoolType()
