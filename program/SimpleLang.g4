@@ -8,7 +8,7 @@ expr: expr op=('*'|'/') expr       	# MulDiv
     | expr op=('+'|'-') expr       	# AddSub
 	| expr '%' expr                	# Mod
     | expr '^'expr           	   	# Pow
-	| expr ('<'|'>'|'<='|'>=') expr # CompareContext 
+	| expr ('<'|'>'|'<='|'>=') expr # Compare
     | INT                          	# Int
     | FLOAT                        	# Float
     | STRING                       	# String

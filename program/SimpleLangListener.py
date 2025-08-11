@@ -89,6 +89,15 @@ class SimpleLangListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SimpleLangParser#Compare.
+    def enterCompare(self, ctx:SimpleLangParser.CompareContext):
+        pass
+
+    # Exit a parse tree produced by SimpleLangParser#Compare.
+    def exitCompare(self, ctx:SimpleLangParser.CompareContext):
+        pass
+
+
     # Enter a parse tree produced by SimpleLangParser#String.
     def enterString(self, ctx:SimpleLangParser.StringContext):
         pass
