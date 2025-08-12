@@ -104,7 +104,7 @@ class TypeCheckVisitor(SimpleLangVisitor):
       else:
           raise TypeError(f"Unsupported operand types for ^: {left_type} and {right_type}")
   
-  # funcion para analizar comparadores: <, >, >>, <<
+  # funcion para analizar comparadores: <, >, >=, <=
   def visitCompare(self, ctx: SimpleLangParser.CompareContext):
       # se reciben los operandos, base y exponente
       left = self.visit(ctx.expr(0))

@@ -16,6 +16,14 @@ En este laboratorio implementamos un sistema de tipos básico utilizando ANTLR p
 
 ---
 
+---
+## Videos
+
+[Video explicacion](https://youtu.be/vOzAzb3R3gU)
+[Video demostracion de ejemplos]
+
+---
+
 ## Gramática Extendida 
 
 Se extendió la gramática original para incluir las siguientes nuevas operaciones:
@@ -82,8 +90,8 @@ Se probó la implementación con dos archivos de prueba incluidos:
 
 ## Imágenes del proyecto
 
-* `imagenes/1.jpg`: Entorno de desarrollo corriendo (Docker y generación de archivos con ANTLR).
-* `imagenes/2.jpg`: Salida de la ejecución de `Driver.py` y `DriverListener.py` con los mensajes de validación de tipos.
+* [Entorno de desarrollo corriendo (Docker y generación de archivos con ANTLR).](imagenes/1.jpg)
+* [ Salida de la ejecución de `Driver.py` y `DriverListener.py` con los mensajes de validación de tipos.](imagenes/2.jpg)
 
 ---
 
